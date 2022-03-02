@@ -17,7 +17,7 @@ pipeline{
 		      sh './gradlew --warning-mode all'
 		      sh './gradlew --scan'
 		      sh 'chmod +x gradlew'
-		      sh './gradlew sonarqube'
+		      sh './gradlew --scan sonarqube'
 		    }
 		}
 	    }
