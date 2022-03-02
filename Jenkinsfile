@@ -11,6 +11,8 @@ pipeline{
 	       echo "============ Executing Sonar Quality Check ============"
 	       script{
 		withSonarQubeEnv(credentialsId: 'sonar-token1') {
+		      sh 'gradle --stop'
+		      sh 'gradle --status'
 		      sh 'chmod +x gradlew'
 		      sh './gradlew sonarqube'
 		    }
