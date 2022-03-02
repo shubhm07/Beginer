@@ -10,9 +10,14 @@ pipeline{
 	    steps{
 	       echo "============ Executing Sonar Quality Check ============"
 	       script{
-		withSonarQubeEnv(credentialsId: 'sonar-token') {
+		withSonarQubeEnv(installationName: 'SonarQubeScanner', credentialsId: 'sonar-token') {
 		      sh 'chmod +x gradlew'
-		      sh './gradlew clean build -d sonarqube'
+		      sh "./gradlew sonarqube \
+                          -Dsonar.projectKey=${serviceName} \
+                  	  -Dsonar.host.url=${env.SONAR_HOST_URL} \
+                  	  -Dsonar.login=${env.SONAR_AUTH_TOKEN} \
+                  	  -Dsonar.projectName=${serviceName} \
+                  	  -Dsonar.projectVersion=${BUILD_NUMBER}"
 		    }
 		}
 	    }
