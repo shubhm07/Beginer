@@ -10,7 +10,7 @@ pipeline{
 	    steps{
 	       echo "============ Executing Sonar Quality Check ============"
 	       script{
-		withSonarQubeEnv(installationName: 'SonarQubeScanner', credentialsId: 'sonar-token') {
+		withSonarQubeEnv(credentialsId: 'sonar-token') {
 		      sh 'chmod +x gradlew'
 		      sh './gradlew sonarqube'
 		    }
