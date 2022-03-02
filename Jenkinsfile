@@ -14,6 +14,8 @@ pipeline{
 		      sh './gradlew --stop'
 		      sh './gradlew --status'
 		      sh './gradlew --daemon'
+		      sh './gradlew --warning-mode all'
+		      sh './gradlew --scan'
 		      sh 'chmod +x gradlew'
 		      sh './gradlew sonarqube'
 		    }
