@@ -13,6 +13,7 @@ pipeline{
 		withSonarQubeEnv(credentialsId: 'sonar-token1') {
 		      sh './gradlew --stop'
 		      sh './gradlew --status'
+		      sh './gradlew --daemon'
 		      sh 'chmod +x gradlew'
 		      sh './gradlew sonarqube'
 		    }
