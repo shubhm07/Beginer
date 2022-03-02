@@ -1,8 +1,14 @@
-#Learn more about Jenkins and JENKINS_HOME directory for which this file is intended.
-#  http://jenkins-ci.org/
-#  https://wiki.jenkins-ci.org/display/JENKINS/Administering+Jenkins
+.gradle
+/build/
 
-#ignore all JENKINS_HOME except jobs directory, root xml config, and .gitignore file
+# Ignore Gradle GUI config
+gradle-app.setting
 
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
 
-#as a result only settings and job config.xml files in JENKINS_HOME will be tracked by git
+# Cache of project
+.gradletasknamecache
+
+# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
+# gradle/wrapper/gradle-wrapper.properties
